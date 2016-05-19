@@ -1,0 +1,42 @@
+files: 
+  - 
+    destination: /data/soft/tomcat/tomcat1/webapps/ROOT/
+    source: /log-hm/codetest/
+hooks: 
+  AfterInstall: 
+    - 
+      location: script/changpermission.sh
+      runas: root
+      timeout: 60
+  ApplicationStart: 
+    - 
+      location: script/tomcatstart.sh
+      runas: root
+      timeout: 60
+  ApplicationStop: 
+    - 
+      location: script/tomcatstop.sh
+      runas: root
+      timeout: 60
+  BeforeInstall: 
+    - 
+      location: script/backup.sh
+      runas: root
+      timeout: 60
+  ValidateService: 
+    - 
+      location: script/validateservice.sh
+      runas: root
+      timeout: 60
+os: linux
+permissions: 
+  - 
+    except: ~
+    group: ec2-user
+    mode: 644
+    object: /data/pro/
+    owner: ec2-user
+    pattern: "**"
+    type: 
+      - file
+version: 0.0
