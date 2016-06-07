@@ -5,6 +5,5 @@ then
    kill -9 $pid
 fi
 
-#echo $? = 0 
-exit 1
+
 
