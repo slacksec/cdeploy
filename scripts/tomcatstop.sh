@@ -4,6 +4,3 @@ if [ "$pid" ]
 then
    kill -9 $pid
 fi
-
-
-
